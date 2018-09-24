@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TOCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="IMAGE">
+          <Key>
+            <PropertyRef Name="IMAGE_SRC_ID" />
+          </Key>
+          <Property Name="IMAGE_SRC_ID" Type="bigint" Nullable="false" />
+          <Property Name="IMAGE_SRC" Type="varchar" MaxLength="500" />
+          <Property Name="IMAGE_SRC_GROUP_ID" Type="int" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" />
+          <Property Name="LAST_UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="int" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+          <Property Name="DELETED_BY" Type="int" />
+        </EntityType>
+        <EntityType Name="LANGUAGE">
+          <Key>
+            <PropertyRef Name="LANGUAGE_TYPE" />
+          </Key>
+          <Property Name="LANGUAGE_TYPE" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="LANGUAGE_NAME" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="bigint" Nullable="false" />
+          <Property Name="PRODUCT_MODEL" Type="varchar" MaxLength="30" />
+          <Property Name="PRODUCT_TYPE_ID" Type="int" />
+          <Property Name="PRODUCT_DESC" Type="varchar" MaxLength="200" />
+          <Property Name="IMAGE_SRC_GROUP_ID" Type="bigint" />
+          <Property Name="IS_ON_MARKET" Type="int" />
+          <Property Name="CURRENCY" Type="varchar" MaxLength="3" />
+          <Property Name="PRICE" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="VAT" Type="numeric" Precision="5" Scale="2" />
+          <Property Name="SUPPLY_ID" Type="int" />
+          <Property Name="FROM_STOCK_ID" Type="int" />
+          <Property Name="TOTAL_QTY" Type="int" />
+          <Property Name="SOLD_QTY" Type="int" />
+          <Property Name="CURRENT_OWNER" Type="int" />
+          <Property Name="CURRENT_ITEM_ID" Type="int" />
+          <Property Name="CURRENT_ITEM_BY" Type="int" />
+          <Property Name="START_DATE" Type="datetime" />
+          <Property Name="END_DATE" Type="datetime" />
+          <Property Name="PRODUCT_STATUS" Type="varchar" MaxLength="10" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" />
+          <Property Name="LAST_UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="int" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+          <Property Name="DELETED_BY" Type="int" />
+        </EntityType>
+        <EntityType Name="PRODUCT_LANGUAGE">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+            <PropertyRef Name="LANGUAGE_TYPE" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="bigint" Nullable="false" />
+          <Property Name="LANGUAGE_TYPE" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="PRODUCT_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" />
+          <Property Name="LAST_UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="int" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+          <Property Name="DELETED_BY" Type="int" />
+        </EntityType>
+        <EntityType Name="PRODUCT_TYPE">
+          <Key>
+            <PropertyRef Name="PRODUCT_TYPE_ID" />
+          </Key>
+          <Property Name="PRODUCT_TYPE_ID" Type="int" Nullable="false" />
+          <Property Name="PRODUCT_TYPE_NAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" />
+          <Property Name="LAST_UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="int" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+          <Property Name="DELETED_BY" Type="int" />
+        </EntityType>
+        <EntityType Name="SUPPLY">
+          <Key>
+            <PropertyRef Name="SUPPLY_ID" />
+          </Key>
+          <Property Name="SUPPLY_ID" Type="int" Nullable="false" />
+          <Property Name="SUPPLY_NAME" Type="varchar" MaxLength="30" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="200" />
+          <Property Name="FAX" Type="varchar" MaxLength="20" />
+          <Property Name="TEL" Type="varchar" MaxLength="20" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="30" />
+          <Property Name="CURRENCY" Type="varchar" MaxLength="5" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" />
+          <Property Name="LAST_UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="int" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+          <Property Name="DELETED_BY" Type="int" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="int" Nullable="false" />
+          <Property Name="ACCOUNT_NO" Type="varchar" MaxLength="30" />
+          <Property Name="ACCOUNT_PASSWORD" Type="varchar" MaxLength="15" />
+          <Property Name="IS_ADMIN" Type="int" />
+          <Property Name="USER_NAME" Type="varchar" MaxLength="30" />
+          <Property Name="ADDRESS" Type="varchar" MaxLength="200" />
+          <Property Name="FAX" Type="varchar" MaxLength="20" />
+          <Property Name="TEL" Type="varchar" MaxLength="20" />
+          <Property Name="LANGUAGE_TYPE" Type="varchar" MaxLength="5" />
+          <Property Name="SEX" Type="varchar" MaxLength="6" />
+          <Property Name="EMAIL" Type="varchar" MaxLength="30" />
+          <Property Name="CREATED_DATE" Type="datetime" />
+          <Property Name="CREATED_BY" Type="int" />
+          <Property Name="LAST_UPDATED_DATE" Type="datetime" />
+          <Property Name="LAST_UPDATED_BY" Type="int" />
+          <Property Name="IS_DELETED" Type="int" />
+          <Property Name="DELETED_DATE" Type="datetime" />
+          <Property Name="DELETED_BY" Type="int" />
+        </EntityType>
+        <EntityContainer Name="TOCModelStoreContainer">
+          <EntitySet Name="IMAGE" EntityType="Self.IMAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LANGUAGE" EntityType="Self.LANGUAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT" EntityType="Self.PRODUCT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT_LANGUAGE" EntityType="Self.PRODUCT_LANGUAGE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRODUCT_TYPE" EntityType="Self.PRODUCT_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUPPLY" EntityType="Self.SUPPLY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TOCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="IMAGE">
+          <Key>
+            <PropertyRef Name="IMAGE_SRC_ID" />
+          </Key>
+          <Property Name="IMAGE_SRC_ID" Type="Int64" Nullable="false" />
+          <Property Name="IMAGE_SRC" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGE_SRC_GROUP_ID" Type="Int32" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="LANGUAGE">
+          <Key>
+            <PropertyRef Name="LANGUAGE_TYPE" />
+          </Key>
+          <Property Name="LANGUAGE_TYPE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LANGUAGE_NAME" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PRODUCT">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="Int64" Nullable="false" />
+          <Property Name="PRODUCT_MODEL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="PRODUCT_TYPE_ID" Type="Int32" />
+          <Property Name="PRODUCT_DESC" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="IMAGE_SRC_GROUP_ID" Type="Int64" />
+          <Property Name="IS_ON_MARKET" Type="Int32" />
+          <Property Name="CURRENCY" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="PRICE" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="VAT" Type="Decimal" Precision="5" Scale="2" />
+          <Property Name="SUPPLY_ID" Type="Int32" />
+          <Property Name="FROM_STOCK_ID" Type="Int32" />
+          <Property Name="TOTAL_QTY" Type="Int32" />
+          <Property Name="SOLD_QTY" Type="Int32" />
+          <Property Name="CURRENT_OWNER" Type="Int32" />
+          <Property Name="CURRENT_ITEM_ID" Type="Int32" />
+          <Property Name="CURRENT_ITEM_BY" Type="Int32" />
+          <Property Name="START_DATE" Type="DateTime" Precision="3" />
+          <Property Name="END_DATE" Type="DateTime" Precision="3" />
+          <Property Name="PRODUCT_STATUS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PRODUCT_LANGUAGE">
+          <Key>
+            <PropertyRef Name="PRODUCT_ID" />
+            <PropertyRef Name="LANGUAGE_TYPE" />
+          </Key>
+          <Property Name="PRODUCT_ID" Type="Int64" Nullable="false" />
+          <Property Name="LANGUAGE_TYPE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PRODUCT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PRODUCT_TYPE">
+          <Key>
+            <PropertyRef Name="PRODUCT_TYPE_ID" />
+          </Key>
+          <Property Name="PRODUCT_TYPE_ID" Type="Int32" Nullable="false" />
+          <Property Name="PRODUCT_TYPE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SUPPLY">
+          <Key>
+            <PropertyRef Name="SUPPLY_ID" />
+          </Key>
+          <Property Name="SUPPLY_ID" Type="Int32" Nullable="false" />
+          <Property Name="SUPPLY_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TEL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CURRENCY" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+        </EntityType>
+        <EntityType Name="USER">
+          <Key>
+            <PropertyRef Name="USER_ID" />
+          </Key>
+          <Property Name="USER_ID" Type="Int32" Nullable="false" />
+          <Property Name="ACCOUNT_NO" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ACCOUNT_PASSWORD" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="IS_ADMIN" Type="Int32" />
+          <Property Name="USER_NAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ADDRESS" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="FAX" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TEL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LANGUAGE_TYPE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="SEX" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="CREATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CREATED_BY" Type="Int32" />
+          <Property Name="LAST_UPDATED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="LAST_UPDATED_BY" Type="Int32" />
+          <Property Name="IS_DELETED" Type="Int32" />
+          <Property Name="DELETED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DELETED_BY" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="TOCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="IMAGEs" EntityType="Self.IMAGE" />
+          <EntitySet Name="LANGUAGEs" EntityType="Self.LANGUAGE" />
+          <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
+          <EntitySet Name="PRODUCT_LANGUAGE" EntityType="Self.PRODUCT_LANGUAGE" />
+          <EntitySet Name="PRODUCT_TYPE" EntityType="Self.PRODUCT_TYPE" />
+          <EntitySet Name="SUPPLies" EntityType="Self.SUPPLY" />
+          <EntitySet Name="USERs" EntityType="Self.USER" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TOCModelStoreContainer" CdmEntityContainer="TOCEntities">
+          <EntitySetMapping Name="IMAGEs">
+            <EntityTypeMapping TypeName="TOCModel.IMAGE">
+              <MappingFragment StoreEntitySet="IMAGE">
+                <ScalarProperty Name="IMAGE_SRC_ID" ColumnName="IMAGE_SRC_ID" />
+                <ScalarProperty Name="IMAGE_SRC" ColumnName="IMAGE_SRC" />
+                <ScalarProperty Name="IMAGE_SRC_GROUP_ID" ColumnName="IMAGE_SRC_GROUP_ID" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LANGUAGEs">
+            <EntityTypeMapping TypeName="TOCModel.LANGUAGE">
+              <MappingFragment StoreEntitySet="LANGUAGE">
+                <ScalarProperty Name="LANGUAGE_TYPE" ColumnName="LANGUAGE_TYPE" />
+                <ScalarProperty Name="LANGUAGE_NAME" ColumnName="LANGUAGE_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCTs">
+            <EntityTypeMapping TypeName="TOCModel.PRODUCT">
+              <MappingFragment StoreEntitySet="PRODUCT">
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="PRODUCT_MODEL" ColumnName="PRODUCT_MODEL" />
+                <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+                <ScalarProperty Name="PRODUCT_DESC" ColumnName="PRODUCT_DESC" />
+                <ScalarProperty Name="IMAGE_SRC_GROUP_ID" ColumnName="IMAGE_SRC_GROUP_ID" />
+                <ScalarProperty Name="IS_ON_MARKET" ColumnName="IS_ON_MARKET" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="PRICE" ColumnName="PRICE" />
+                <ScalarProperty Name="VAT" ColumnName="VAT" />
+                <ScalarProperty Name="SUPPLY_ID" ColumnName="SUPPLY_ID" />
+                <ScalarProperty Name="FROM_STOCK_ID" ColumnName="FROM_STOCK_ID" />
+                <ScalarProperty Name="TOTAL_QTY" ColumnName="TOTAL_QTY" />
+                <ScalarProperty Name="SOLD_QTY" ColumnName="SOLD_QTY" />
+                <ScalarProperty Name="CURRENT_OWNER" ColumnName="CURRENT_OWNER" />
+                <ScalarProperty Name="CURRENT_ITEM_ID" ColumnName="CURRENT_ITEM_ID" />
+                <ScalarProperty Name="CURRENT_ITEM_BY" ColumnName="CURRENT_ITEM_BY" />
+                <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+                <ScalarProperty Name="PRODUCT_STATUS" ColumnName="PRODUCT_STATUS" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_LANGUAGE">
+            <EntityTypeMapping TypeName="TOCModel.PRODUCT_LANGUAGE">
+              <MappingFragment StoreEntitySet="PRODUCT_LANGUAGE">
+                <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
+                <ScalarProperty Name="LANGUAGE_TYPE" ColumnName="LANGUAGE_TYPE" />
+                <ScalarProperty Name="PRODUCT_NAME" ColumnName="PRODUCT_NAME" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODUCT_TYPE">
+            <EntityTypeMapping TypeName="TOCModel.PRODUCT_TYPE">
+              <MappingFragment StoreEntitySet="PRODUCT_TYPE">
+                <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
+                <ScalarProperty Name="PRODUCT_TYPE_NAME" ColumnName="PRODUCT_TYPE_NAME" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUPPLies">
+            <EntityTypeMapping TypeName="TOCModel.SUPPLY">
+              <MappingFragment StoreEntitySet="SUPPLY">
+                <ScalarProperty Name="SUPPLY_ID" ColumnName="SUPPLY_ID" />
+                <ScalarProperty Name="SUPPLY_NAME" ColumnName="SUPPLY_NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="TEL" ColumnName="TEL" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CURRENCY" ColumnName="CURRENCY" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USERs">
+            <EntityTypeMapping TypeName="TOCModel.USER">
+              <MappingFragment StoreEntitySet="USER">
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="ACCOUNT_NO" ColumnName="ACCOUNT_NO" />
+                <ScalarProperty Name="ACCOUNT_PASSWORD" ColumnName="ACCOUNT_PASSWORD" />
+                <ScalarProperty Name="IS_ADMIN" ColumnName="IS_ADMIN" />
+                <ScalarProperty Name="USER_NAME" ColumnName="USER_NAME" />
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="FAX" ColumnName="FAX" />
+                <ScalarProperty Name="TEL" ColumnName="TEL" />
+                <ScalarProperty Name="LANGUAGE_TYPE" ColumnName="LANGUAGE_TYPE" />
+                <ScalarProperty Name="SEX" ColumnName="SEX" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="CREATED_DATE" ColumnName="CREATED_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="LAST_UPDATED_DATE" ColumnName="LAST_UPDATED_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="IS_DELETED" ColumnName="IS_DELETED" />
+                <ScalarProperty Name="DELETED_DATE" ColumnName="DELETED_DATE" />
+                <ScalarProperty Name="DELETED_BY" ColumnName="DELETED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
