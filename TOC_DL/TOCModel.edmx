@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="TOCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="TOCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="IMAGE">
           <Key>
             <PropertyRef Name="IMAGE_SRC_ID" />
@@ -139,8 +139,7 @@
           <EntitySet Name="SUPPLY" EntityType="Self.SUPPLY" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TOCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -273,8 +272,8 @@
           <EntitySet Name="IMAGEs" EntityType="Self.IMAGE" />
           <EntitySet Name="LANGUAGEs" EntityType="Self.LANGUAGE" />
           <EntitySet Name="PRODUCTs" EntityType="Self.PRODUCT" />
-          <EntitySet Name="PRODUCT_LANGUAGE" EntityType="Self.PRODUCT_LANGUAGE" />
-          <EntitySet Name="PRODUCT_TYPE" EntityType="Self.PRODUCT_TYPE" />
+          <EntitySet Name="PRODUCT_LANGUAGEs" EntityType="Self.PRODUCT_LANGUAGE" />
+          <EntitySet Name="PRODUCT_TYPEs" EntityType="Self.PRODUCT_TYPE" />
           <EntitySet Name="SUPPLies" EntityType="Self.SUPPLY" />
           <EntitySet Name="USERs" EntityType="Self.USER" />
         </EntityContainer>
@@ -340,7 +339,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PRODUCT_LANGUAGE">
+          <EntitySetMapping Name="PRODUCT_LANGUAGEs">
             <EntityTypeMapping TypeName="TOCModel.PRODUCT_LANGUAGE">
               <MappingFragment StoreEntitySet="PRODUCT_LANGUAGE">
                 <ScalarProperty Name="PRODUCT_ID" ColumnName="PRODUCT_ID" />
@@ -356,7 +355,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="PRODUCT_TYPE">
+          <EntitySetMapping Name="PRODUCT_TYPEs">
             <EntityTypeMapping TypeName="TOCModel.PRODUCT_TYPE">
               <MappingFragment StoreEntitySet="PRODUCT_TYPE">
                 <ScalarProperty Name="PRODUCT_TYPE_ID" ColumnName="PRODUCT_TYPE_ID" />
