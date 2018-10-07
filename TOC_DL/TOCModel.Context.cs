@@ -28,8 +28,8 @@ namespace TOC_DL
         public virtual DbSet<IMAGE> IMAGEs { get; set; }
         public virtual DbSet<LANGUAGE> LANGUAGEs { get; set; }
         public virtual DbSet<PRODUCT> PRODUCTs { get; set; }
-        public virtual DbSet<PRODUCT_LANGUAGE> PRODUCT_LANGUAGE { get; set; }
-        public virtual DbSet<PRODUCT_TYPE> PRODUCT_TYPE { get; set; }
+        public virtual DbSet<PRODUCT_LANGUAGE> PRODUCT_LANGUAGEs { get; set; }
+        public virtual DbSet<PRODUCT_TYPE> PRODUCT_TYPEs { get; set; }
         public virtual DbSet<SUPPLY> SUPPLies { get; set; }
         public virtual DbSet<USER> USERs { get; set; }
     }
